@@ -11,9 +11,10 @@
 	--info-background: #d9dbff;
 	--success-color: #00cc00;
 	--success-background: #e2ffd9;
-	--disabled-color: #cccccc;
 }
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 	position: relative;
 }
@@ -41,13 +42,13 @@ li {
 textarea,
 input[type='text'],
 input[type='email'],
-input[type='password'],
 input[type='date']
 input[type='tel'],
-input[type='url'] {
+input[type='url'],
+input[type='password'] {
 	width: 100%;
-	border: 1px solid #ccc;
 	height: 30px;
+	border: 1px solid #ccc;
 }
 textarea {
 	height: 350px;
@@ -75,18 +76,46 @@ button:focus,
 .link-button:focus {
 	outline: none;
 }
-button.toggled,
-.link-button.toggled{
-	background: var(--complimentary-color);
+button.toggle,
+.link-button.toggle{
+	position: relative;
+	border-radius: 15px;
+	width: 60px;
+	height: 30px;
+	border: 1px solid #ccc;
+	padding: 0px;
+	background: var(--success-color);
+	transition: 0.25s;
+	flex-shrink: 0;
 }
+button.toggle::after,
+.link-button.toggle::after{
+	content: "";
+	display: block;
+	border-radius: 15px;
+	width: 30px;
+	height: 28px;
+	border: 1px solid #ccc;
+	background: white;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+button.toggle.on,
+.link-button.toggle.on {
+	border: 1px solid #ccc;
+	background-color: red
+}
+button.toggle.on::after{
+	transform: translateX(30px);
+}
+
 button.toggled:hover,
 .link-button.toggled:hover {
 	background: var(--complimentary-color-dark);
 }
-button[disabled],
-.link-button[disabled] {
-	background: var(--disabled-color);
-	cursor: default;
+.hidden {
+	display: none;
 }
 .row{
 	display: flex;
@@ -101,13 +130,11 @@ button[disabled],
 	align-items: center;
 }
 .stack-stretch{
-	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 }
 .error {
-	display: none;
 	color: var(--error-color);
 	background: var(--error-background);
 	border: 1px solid var(--error-color);
@@ -115,7 +142,6 @@ button[disabled],
 	margin-bottom: 10px;
 }
 .success {
-	display: none;
 	color: var(--success-color);
 	background: var(--success-background);
 	border: 1px solid var(--success-color);
@@ -123,7 +149,6 @@ button[disabled],
 	margin-bottom: 10px;
 }
 .warn {
-	display: none;
 	color: var(--warn-color);
 	background: var(--warn-background);
 	border: 1px solid var(--warn-color);
@@ -131,21 +156,12 @@ button[disabled],
 	margin-bottom: 10px;
 }
 .info {
-	display: none;
 	color: var(--info-color);
 	background: var(--info-background);
 	border: 1px solid var(--info-color);
 	padding: 5px;
 	margin-bottom: 10px;
 }
-.hidden {
-	display: none !important;
-}
-
-#encrypted-input {
-	background-color: #efefef;
-	max-width: 50%;
-	flex-basis: 50%;
-	height: 350px;
-	padding: 3px;
+#mode-label {
+	width: 75px;
 }

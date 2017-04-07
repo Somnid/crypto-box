@@ -57,7 +57,7 @@ var AppView = (function(){
 							passwordKey : "",
 							cryptoVisible : true
 						})
-						.bindClassReversed("#mode", "encryptMode", "toggled")
+						.bindClassReversed("#mode", "encryptMode", "on")
 						.bindClassReversed("#encrypted-input", "cryptoVisible", "hidden")
 
 						.bindAttributeExistenceReversed("#load", "filename", "disabled")
@@ -65,7 +65,7 @@ var AppView = (function(){
 
 						.bindElement("#encrypted-input", "resultText")
 						.bindElement("#status", "status")
-						.bindElement("#mode", "modeText")
+						.bindElement("#mode-label", "modeText")
 						.bindElementReverse("#password", "password")
 						.bindElementReverse("#filename", "filename")
 						.bindElementTwoWay("#input", "text")
@@ -153,7 +153,7 @@ var AppView = (function(){
 	}
 
 	function init(){
-		this.installServiceWorker();
+		//this.installServiceWorker();
 		this.dropbox = Dropbox.create({
 			appKey : "hxnx6192t96ejeg",
 			appName : "cryptoTool"
