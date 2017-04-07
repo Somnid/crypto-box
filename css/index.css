@@ -164,4 +164,12 @@ button.toggled:hover,
 }
 #mode-label {
 	width: 75px;
+	flex-shrink:0;
+}
+#encrypted-input {
+	background-color: #efefef;
+	max-width: 50%;
+	flex-basis: 50%;
+	height: 350px;
+	padding: 3px;
 }

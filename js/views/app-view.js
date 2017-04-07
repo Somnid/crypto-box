@@ -153,7 +153,7 @@ var AppView = (function(){
 	}
 
 	function init(){
-		//this.installServiceWorker();
+		this.installServiceWorker();
 		this.dropbox = Dropbox.create({
 			appKey : "hxnx6192t96ejeg",
 			appName : "cryptoTool"
