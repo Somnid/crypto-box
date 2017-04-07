@@ -84,9 +84,9 @@ button.toggle,
 	height: 30px;
 	border: 1px solid #ccc;
 	padding: 0px;
-	background: var(--success-color);
-	transition: 0.25s;
+	transition: 0.5s;
 	flex-shrink: 0;
+	background-color: var(--error-color);
 }
 button.toggle::after,
 .link-button.toggle::after{
@@ -100,11 +100,12 @@ button.toggle::after,
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	transition: 0.5s;
 }
 button.toggle.on,
 .link-button.toggle.on {
 	border: 1px solid #ccc;
-	background-color: red
+	background: var(--success-color);
 }
 button.toggle.on::after{
 	transform: translateX(30px);
