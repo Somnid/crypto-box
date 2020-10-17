@@ -1,4 +1,4 @@
 # crypto-box
 Using web crypto for a simple, easy to use file encryptor/decryptor with dropbox support.
 
-https://somnid.github.io/crypto-box/
+https://ndesmic.github.io/crypto-box/
